@@ -1,0 +1,48 @@
+.s-card {
+  /* width: 100%; */
+  max-width: 16.8rem;
+  height: 510px;
+  background: #fff;
+  padding: 1rem;
+}
+
+.sat-img {
+  background: #f2f2f2;
+}
+
+aside {
+  background: #fff;
+  min-width: 14.5rem;
+  padding: 16px;
+}
+
+.type-and-pills {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.filter-type-name {
+  margin: 24px 0 16px;
+  text-align: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid black;
+}
+
+.filter-pill {
+  background: #C5E09B;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.filter-pill p {
+  margin: 0;
+  user-select: none;
+}
+
+.is-active {
+  background: red;
+}

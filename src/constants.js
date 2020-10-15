@@ -1,0 +1,1 @@
+export const SPACEX_API_BASE_URL = 'https://api.spacexdata.com'
