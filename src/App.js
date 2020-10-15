@@ -13,10 +13,15 @@ function App() {
   const [successLandFilter, setSuccessLandFilter] = useState(null)
   // keep track of the last selected filter
   const [lastSelectedFilter, setLastSelectedFilter] = useState(null)
+  // state for is API calling - for loaders 
+  const [isApiCalling, setIsAPICalling] = useState(false)
 
   useEffect(() => {
 
     async function fetchInitialSatDetails () {
+
+      setIsAPICalling(true)
+
       let apiParams = {
         limit: 100
       }
@@ -36,6 +41,7 @@ function App() {
       try {
         const launches = await makeAPIRequest('get', endpoints.launches, apiParams)
         setLaunchesDetails([...launches])
+        setIsAPICalling(false)
       } catch (error) {
         return error
       }
@@ -141,22 +147,28 @@ function App() {
 
   return (
     <div className="App">
-      <h2>SpacEx Launch programs</h2>
+      <h1>SpacEx Launch programs</h1>
+      <br />
       <div className='filter-and-satellite-wrapper'>
         <Filters selectedFilters={handleFilterSelectionClick} />
         <main>
-          {launches && launches.map(launch => (
-            <SatelliteCard
-              key={launch.flight_number}
-              img={launch.links.mission_patch}
-              missionName={launch.mission_name}
-              flightNumber={launch.flight_number}
-              launchYear={launch.launch_year}
-              missionId={launch.mission_id}
-              isLaunchSuccess={launch.launch_success}
-              isLandingSuccess={launch.rocket.first_stage.cores}
-            />
-          ))}
+          {isApiCalling 
+            ? <h1>Please wait 🚀</h1> 
+            : <React.Fragment>
+              {launches.length
+                ? launches.map(launch => (
+                  <SatelliteCard
+                    key={launch.flight_number}
+                    img={launch.links.mission_patch}
+                    missionName={launch.mission_name}
+                    flightNumber={launch.flight_number}
+                    launchYear={launch.launch_year}
+                    missionId={launch.mission_id}
+                    isLaunchSuccess={launch.launch_success}
+                    isLandingSuccess={launch.rocket.first_stage.cores}
+                  />))
+                : <h1>Uh ah! no rocket found 😔</h1>}
+              </React.Fragment>}
         </main>
       </div>
     </div>
