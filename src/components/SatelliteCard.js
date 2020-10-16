@@ -4,7 +4,7 @@ import './components.css'
 const SatelliteCard = ({ img, missionName, flightNumber, launchYear, isLaunchSuccess, isLandingSuccess, missionId }) => {
   return (
     <div className='s-card'>
-      <figure style={{ margin: 0, background: '#f2f2f2' }}>
+      <figure>
         <img className='sat-img' width={250} src={img} alt='satellite-logo' />
       </figure>
       <h3 style={{ color: '#465098' }}>{missionName} #{flightNumber}</h3>
