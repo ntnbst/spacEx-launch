@@ -4,8 +4,10 @@ import './components.css'
 const SatelliteCard = ({ img, missionName, flightNumber, launchYear, isLaunchSuccess, isLandingSuccess, missionId }) => {
   return (
     <div className='s-card'>
-      <img className='sat-img' width={250} src={img} alt='satellite-logo' />
-      <h4 style={{ color: '#465098' }}>{missionName} #{flightNumber}</h4>
+      <figure style={{ margin: 0, background: '#f2f2f2' }}>
+        <img className='sat-img' width={250} src={img} alt='satellite-logo' />
+      </figure>
+      <h3 style={{ color: '#465098' }}>{missionName} #{flightNumber}</h3>
       <h4>Mission Ids: { missionId.map((id, index) => <span>{id}{missionId.length > 1 && index !== missionId.length - 1 && ', '}</span>) }</h4>
       <h4>Launch Year: {launchYear}</h4>
       <h4>Successful Launch: {isLaunchSuccess !== null ? isLaunchSuccess.toString() : 'NA'}</h4>
