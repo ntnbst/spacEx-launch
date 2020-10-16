@@ -3,7 +3,7 @@ import React from 'react'
 const Filters = ({ selectedFilters }) => {
   return (
     <aside>
-      <h3>Filters</h3> 
+      <h3 style={{ marginTop: 0 }}>Filters</h3> 
       <FilterTypeWithFilterPills
         selectedFilters={selectedFilters}
         filterTypeName='Launch Year'
