@@ -11,6 +11,7 @@
 .sat-img {
   max-width: 280px;
   width: 100%;
+  max-height: 226px;
 }
 
 figure {
